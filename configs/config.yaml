@@ -1,0 +1,116 @@
+batch_size : 32
+learning_rate : 0.001
+mode: train
+
+
+batch_size :  32 # batch size
+
+learning_rate :  0.001
+
+save_every :  10000 # save model every k iterations
+print_every :  50 # eval model every k iterations
+eval_every :  50 # eval model every k iter_samations
+num_classes :  10 # eval model every k iter_samations
+
+mode : train #train or test
+model_dir : models
+restore_dir : models
+test_dataset : models
+train_dataset : models
+model_type : graph
+
+
+video_num_frames :  10
+used_num_frames :  10
+conv_reduce_mean : False # train just the convolutional part
+freeze_conv : False # don't train conv part
+
+num_process_iter :  8
+num_scales :  3
+
+num_filters :  512
+num_epochs :  100
+
+restore : False # restore from restore_dir
+use_batch_norm : False # use BN in graph
+use_layer_norm : False # use LN in graph
+use_norm : 'None' # type of normalisation: None / BN / LN 
+node_feat_dim :  512
+edge_feat_dim :  512
+message_dims :  512
+backbone_dims :  1024
+
+use_att : simple # none / simple / dot 
+scalewise_update :  False # use a diff update function for each scale
+project_i3d : False # project i3d features
+project_i3d_back : False # project graph features to i3d dims
+
+
+
+dropout_rate :  0.0
+classification_dropout :  0.0
+
+
+process_context_node :  False # use a global node for context
+use_space_residual :  False # use_space_residual
+
+final_norm_init :  'ones' # ones / zeros / default
+final_norm : 'None' # type of normalisation used after the graph: None / BN / LN 
+
+just_backbone :  False # train just backbone or the entire model (+graph)
+comb_type :  'plus' # tipul combinarii i3d-graf: plus: i3d+graph; just_i3d ; consecutive ; plus-residual
+
+num_eval_clips :  1 # number of clips for every video
+num_eval_spatial_clips :  1 # number of clips for every video
+num_eval_temporal_clips :  1 # number of clips for every video
+
+
+iter_type :  'space_only' # space_only/time_only/none
+time_rnn_type :  'vanilla' # vanilla/lstm
+
+len_eval_train :  100
+
+lstm_hid_units :  1024
+len_eval_test :  512
+graph_scale :  'zeros' # zeros/ones/ones_fixed: i3d + graph_scale * graf
+
+num_chan :  3 # num of channels
+dim_h :  224
+dim_w :  224
+temp_stride :  1
+optimizer :  'adam' # adam/momentum
+use_non_local :  False
+use_positional_emb :  'none' # type of positional emb. none means no positional emb at all
+type_positional_agreg :  'none' # type of positional emb. none means no positional emb at all
+
+backbone_model : non-local # type of model resnet_2d/i3d/non-local
+interleaved_time_proc :  False # if true put one time processing 
+dataset : smt-smt # smt-smt/mnist
+multiple_events :  1 #,'number of events dataset')
+graphs_no :  1 #,'number of graphs')
+dim_map :  6
+message_type :  'none' # type of mesages none(source-destination) or source
+dropout_place :  'none' # where to place dropout: none / beginning / end / all
+weight_decay :  0.0001 # weight decay in for AdamWOptimizer
+
+place_graph :  'none' # where to place the graph: res2 / res3 / res5 / final / res2-res3-final
+place_nonlocal :  'none' # where to place the graph: res2 / res3 / res5 / final / res2-res3-final
+
+compress_time :  False # compress time before the graph processing 
+no_graph :  'False' # 
+i3d_norm :  'False' # normalise the i3d residual branch
+gate_agregate :  'False' # 
+gateing :  'none' # none/i3d/graph/agregate/graph
+
+online_eval :  'False' # 
+ind_time :  0
+ind_space :  0
+rand_no :  1241322
+
+adj_matrix :  'grid' # 'grid or fullor self-loop')
+update_layers :  2 # 0 or 1 or 2 layers in update MLP
+multihead_att :  True # multi or one head attention
+
+gt_test_file : '/data/datasets/something-something/someting_something_validation_labels.pickle' 
+gt_train_file : '/data/datasets/something-something/someting_something_train_labels.pickle'
+

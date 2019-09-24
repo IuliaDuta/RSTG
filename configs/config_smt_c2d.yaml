@@ -1,0 +1,66 @@
+mode: eval
+restore : True # restore from restore_dir
+
+batch_size : 2
+learning_rate : 0.0001
+optimizer :  momentum_nesterov # adam/momentum
+num_epochs :  100
+
+save_every :  5000 # save model every k iterations
+print_every :  50 # print stats every k iterations
+eval_every :  1000 # eval model every k iterations
+num_classes :  174 # number of classes
+len_eval_train :  200
+len_eval_test :  2048
+
+num_chan :  3 # num of channels
+dim_h :  224
+dim_w :  224
+
+video_num_frames :  32 # number of frames of the input
+used_num_frames :  16 # number of time steps received by the graph model
+
+num_eval_spatial_clips :  1 # number of spatial crops for each video
+num_eval_temporal_clips :  1 # number of temporal sampling for each video
+
+dataset : smt-smt # smt-smt/mnist
+restore_dir : './checkpoints/model_backbone_c2d/'
+test_dataset : './datasets/smt-smt_dataset_32frames_crop-224x224_center-True_smaller_size-256x256_valid/'
+train_dataset : './datasets/smt-smt_dataset_32frames_crop-224x224_center-False_smaller_size-256x256_train/'
+
+gt_test_file : './util_pickles/someting_something_validation_labels.pickle' 
+gt_train_file : './util_pickles/someting_something_train_labels.pickle'
+
+backbone_model : c2d # type of model resnet_2d/i3d/non-local
+place_graph :  none # where to place the graph: res2 / res3 / res5 / final / res2-res3-final
+place_nonlocal : none # where to place the graph: res2 / res3 / res5 / final / res2-res3-final
+
+# backbone params
+num_filters :  512 # number of conv filters in SimpleConvModel
+classification_dropout :  0.3 # dropout in the classification layer
+final_norm : LN # type of normalisation used after the graph: None / BN / LN 
+
+# graph model params
+
+num_process_iter :  3
+num_scales :  3
+
+use_norm : LN # type of normalisation: None / BN / LN 
+node_feat_dim :  512
+message_dims :  512
+
+use_att : dot # none / simple / dot 
+scalewise_update :  True # use a different update function for each scale
+
+comb_type :  plus # agregation type between backbone features and graph output: serial / plus
+use_positional_emb :  False  # use gaussian map for location embedding: True or False
+dim_map :  6 # use a dim_map x dim_map map as positional embedding
+
+update_layers :  2 # number of layers in spatial update MLP
+multihead_att :  False # multi or one head attention
+
+
+
+
+
+

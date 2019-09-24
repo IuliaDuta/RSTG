@@ -1,0 +1,1 @@
+python ./create_datasets/create_syncMNIST.py --split=train --no_noise_parts=0  --dataset_multiplier=10 --save_first_n_videos=20 --predefined=True --predefined_path=./create_datasets/predefined_path_train.pickle
