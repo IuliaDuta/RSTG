@@ -34,7 +34,8 @@ The repository contains the implementation of the RSTG model and our Tensorflow 
 Create a Conda enviroment with the following configuration:
  - python                    3.6.8
  - tensorflow-gpu            1.13.1
- ... 
+ - numpy                     1.16.2
+ - CUDA                      10
 
 ## Checkpoints for pre-trained models
 
