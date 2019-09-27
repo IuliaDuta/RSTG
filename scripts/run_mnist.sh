@@ -1,7 +1,7 @@
 RAND=$((RANDOM))
 
 
-MODEL_DIR='/models/graph_models/models_5_digits_sincron_noiseless/'$1
+MODEL_DIR='./checkpoints/'$1
 LOG_NAME=$MODEL_DIR'/log_'$RAND
 CONFIG_FILE='./configs/mnist_config.yaml'
 mkdir $MODEL_DIR
