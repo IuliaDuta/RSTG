@@ -1,4 +1,4 @@
-name: test3
+name: rstg_env
 channels:
   - anaconda
   - https://repo.anaconda.com/pkgs/free
@@ -108,5 +108,5 @@ dependencies:
   - pip:
     - lycon==0.2.0
     - scipy==1.2.0
-prefix: /opt/conda/envs/test3
+prefix: /opt/conda/envs/rstg_env
 
