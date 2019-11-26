@@ -100,10 +100,10 @@ class DatasetCreator:
         images, labels, video_ids = self.read_data(
             images, gt_file, len_eval=len_eval, name=name)
         if training:
-            iterator, handle = self.build_dataset(
+            iterator, handle = self.build_train_dataset(
                 images, labels, video_ids, self.num_towers, sess)
         else:
-            iterator, handle = self.build_train_dataset(
+            iterator, handle = self.build_dataset(
                 images, labels, video_ids, self.num_towers, sess)
         return iterator, handle
 
