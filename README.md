@@ -88,7 +88,6 @@ We also give Tensorflow checkpoints for I3D and C2D models trained on Kinetics f
 | c2d | config_smt_c2d.yaml | [`ckpt`](https://drive.google.com/open?id=1-0S41Su4Z3ocPHqIj9n7zWeR0MROC5lh)|
 | c2d_rstg | config_smt_c2d_rstg_final.yaml | [`ckpt`](https://drive.google.com/open?id=1pXpo-pRetPP0iO-_vFg8IJ2aR2QY-D-m)|
 | i3d | config_smt_i3d.yaml | [`ckpt`](https://drive.google.com/open?id=1b4J1it-fq3gz5V0QB41zRhYD4hBLJnvY)|
-| non-local</sub> | config_smt_nonlocal.yaml | [`ckpt`](https://drive.google.com/open?id=1UgpBLj_R2AlLcZk3MNmkCSXMV5JaP9Cz)|
 | i3d_rstg_final | config_smt_i3d_rstg_final.yaml | [`ckpt`](https://drive.google.com/open?id=1c5u0x10T-LZB1_FCRAvRk5n7lFxCzRh0)|
 | i3d_rstg_res3_res4 | config_smt_i3d_rstg_res3_res4.yaml | [`ckpt`](https://drive.google.com/open?id=1bTSTrZNcMeskDv8kQ1eclKnab7tZUw_z)|
 
