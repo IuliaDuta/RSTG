@@ -138,6 +138,7 @@ class NLModel():
 
     def spacetime_nonlocal(self, blob_in, dim_in, dim_out, batch_size, prefix, dim_inner,
                            is_test, max_pool_stride=2):
+        # blob in: B x T x H x W x C
         cur = blob_in
         # we do projection to convert each spacetime location to a feature
         # theta original size
@@ -175,7 +176,12 @@ class NLModel():
 
         # we have to use explicit batch size (to support arbitrary spacetime size)
         # e.g., (8, 1024, 4, 14, 14) => (8, 1024, 784)
+        theta = tf.transpose(theta, [0,4,1,2,3])
+        phi = tf.transpose(phi, [0,4,1,2,3])
+        g = tf.transpose(g, [0,4,1,2,3])
 
+
+        pdb.set_trace()
         theta_shape_5d = tf.shape(theta)
         theta = tf.reshape(theta, [batch_size, dim_inner, -1])
         phi = tf.reshape(phi, [batch_size, dim_inner, -1])
@@ -193,7 +199,7 @@ class NLModel():
         # reshape back:
         # e.g., (8, 1024, 784) => (8, 1024, 4, 14, 14)
         t_re = tf.reshape(t, shape=theta_shape_5d)
-
+        t_re = tf.transpose(t_re, [0,2,3,4,1])
         blob_out = t_re
         blob_out = tf.layers.conv3d(blob_out, filters=dim_out,
                                     kernel_size=[1, 1, 1],
